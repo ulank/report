@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  mongo:
+    container_name: rc-mongodb
+    image: mongo:4.4.3
+    restart: unless-stopped
+    ports:
+      - "27013:27017"

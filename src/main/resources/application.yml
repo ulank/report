@@ -1,0 +1,12 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /report
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  data:
+    mongodb:
+      port: 27013
+      database: rc-db
