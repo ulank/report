@@ -10,33 +10,32 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.Instant;
+import java.util.Set;
 
 /**
- * Created by Ulan on 1/9/2023
+ * Created by Ulan on 1/12/2023
  */
 
 @Data
-@Document(collection = "report")
+@Document(collection = "package")
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class Report {
-
+public class Package {
     @Id
     private String id;
 
-    @Field(name = "title")
-    @NotNull
-    private String title;
+    @Field(name = "name")
+    @NotBlank
+    private String name;
 
     @Field(name = "description")
     private String description;
 
-    @Field(name = "dataset_id")
-    @NotBlank
-    private String datasetId;
+    @Field(name = "reports")
+    private Set<@Valid Report> reports;
 
     @Field(name = "created_by")
     @CreatedBy
